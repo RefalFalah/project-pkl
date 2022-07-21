@@ -32,20 +32,7 @@
                                             <td>{{ $data->nis }}</td>
                                             <td>{{ $data->kode_mp }}</td>
                                             <td>{{ $data->nilai }}</td>
-                                            @php
-                                                if ($data->nilai >= 90) {
-                                                    $grade = 'A';
-                                                } elseif ($data->nilai >= 80) {
-                                                    $grade = 'B';
-                                                } elseif ($data->nilai >= 70) {
-                                                    $grade = 'C';
-                                                } elseif ($data->nilai >= 60) {
-                                                    $grade = 'D';
-                                                } else {
-                                                    $grade = 'E';
-                                                }
-                                            @endphp
-                                            <td>{{ $grade }}</td>
+                                            <td>{{ $data->index_nilai }}</td>
                                             <td>
                                                 <form action="{{ route('nilai.destroy', $data->id) }}" method="post">
                                                     @csrf

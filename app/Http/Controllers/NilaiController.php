@@ -48,9 +48,21 @@ class NilaiController extends Controller
         ]);
 
         $nilai = new Nilai();
+        if ($request->nilai >= 90) {
+            $grade = 'A';
+        } elseif ($request->nilai >= 80) {
+            $grade = 'B';
+        } elseif ($request->nilai >= 70) {
+            $grade = 'C';
+        } elseif ($request->nilai >= 60) {
+            $grade = 'D';
+        } else {
+            $grade = 'E';
+        }
         $nilai->nis = $request->nis;
         $nilai->kode_mp = $request->kode_mp;
         $nilai->nilai = $request->nilai;
+        $nilai->index_nilai = $grade;
         $nilai->save();
 
         return redirect()->route('nilai.index')->with('success', 'Data berhasil dibuat!');
@@ -94,12 +106,25 @@ class NilaiController extends Controller
         $validated = $request->validate([
             'nis' => 'required|max:225',
             'kode_mp' => 'required|max:225',
-            'nilai' => 'required',
+            'nilai' => 'required'
         ]);
+
 
         $nilai->nis = $request->nis;
         $nilai->kode_mp = $request->kode_mp;
         $nilai->nilai = $request->nilai;
+        if ($request->nilai >= 90) {
+            $grade = 'A';
+        } elseif ($request->nilai >= 80) {
+            $grade = 'B';
+        } elseif ($request->nilai >= 70) {
+            $grade = 'C';
+        } elseif ($request->nilai >= 60) {
+            $grade = 'D';
+        } else {
+            $grade = 'E';
+        }
+        $nilai->index_nilai = $grade;
         $nilai->save();
 
         return redirect()->route('nilai.index')->with('success', 'Data berhasil diedit!');

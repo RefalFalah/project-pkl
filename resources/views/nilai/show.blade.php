@@ -20,7 +20,11 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nilai</label>
-                            <input type="number" class="form-control" name="nilai" value="{{ $nilai->nilai }}"
+                            <input type="number" class="form-control" name="nilai" value="{{ $nilai->nilai }}" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Grade</label>
+                            <input type="text" class="form-control" name="nilai" value="{{ $nilai->index_nilai }}"
                                 readonly>
                         </div>
                         <div class="mb-3">

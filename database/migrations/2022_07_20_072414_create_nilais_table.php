@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nis')->unique();
             $table->string('kode_mp')->unique();
             $table->integer('nilai');
+            $table->char('index_nilai');
             $table->timestamps();
         });
     }

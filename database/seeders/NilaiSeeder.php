@@ -16,7 +16,7 @@ class NilaiSeeder extends Seeder
     public function run()
     {
         $nilai = [
-            ['nis' => '12345', 'kode_mp' => 'MP001', 'nilai' => 100],
+            ['nis' => '12345', 'kode_mp' => 'MP001', 'nilai' => 100, 'index_nilai' => 'A'],
         ];
 
         DB::table('nilais')->insert($nilai);
