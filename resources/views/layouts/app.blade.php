@@ -48,17 +48,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/siswa">Siswa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/nilai">Nilai</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/jurusan">Jurusan</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/home">Home</a></li>
+                                <li><a class="dropdown-item" href="/siswa">Siswa</a></li>
+                                <li><a class="dropdown-item" href="/nilai">Nilai</a></li>
+                                <li><a class="dropdown-item" href="/jurusan">Jurusan</a></li>
+                            </ul>
                         </li>
                     </ul>
 
