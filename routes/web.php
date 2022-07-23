@@ -33,3 +33,7 @@ Route::resource('jurusan', JurusanController::class);
 Route::get('/test-admin', function () {
     return view('layouts.admin');
 });
+
+Route::get('/hello', function () {
+    return view('hello');
+});

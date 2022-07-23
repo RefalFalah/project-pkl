@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
 
+    <!--  Topscript -->
     @include('components.topscript')
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-navbar-fixed">
     <div class="wrapper">
 
         <!-- Preloader -->
@@ -18,8 +19,10 @@
                 height="500" width="500">
         </div>
 
+        <!--  Navbar -->
         @include('layouts.components.navbar')
 
+        <!--  Sidebar -->
         @include('layouts.components.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
@@ -61,7 +64,8 @@
     </div>
     <!-- ./wrapper -->
 
-    @include('components.bottomscript');
+    <!--  Bottomscript -->
+    @include('components.bottomscript')
 </body>
 
 </html>
