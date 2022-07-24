@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\JurusanController;
@@ -29,11 +30,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('siswa', SiswaController::class);
 Route::resource('nilai', NilaiController::class);
 Route::resource('jurusan', JurusanController::class);
-
-Route::get('/test-admin', function () {
-    return view('layouts.admin');
-});
-
-Route::get('/hello', function () {
-    return view('hello');
-});
+Route::resource('post', PostController::class);

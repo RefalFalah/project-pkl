@@ -38,8 +38,16 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
+                    <a href="{{ url('/post') }}" class="nav-link">
+                        <i class="fas fa-vote-yea"></i>&nbsp;
+                        <p>
+                            Posts
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ url('/siswa') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="fas fa-users"></i>&nbsp;
                         <p>
                             Siswa
                         </p>
@@ -47,7 +55,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('/nilai') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="fas fa-star"></i>&nbsp;
                         <p>
                             Nilai
                         </p>
@@ -55,7 +63,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('/jurusan') }}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="fas fa-school"></i>&nbsp;
                         <p>
                             Jurusan
                         </p>

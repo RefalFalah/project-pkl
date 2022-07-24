@@ -12,7 +12,7 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="{{ url('/register') }}">Registrasi Account</a>
+            <a href="{{ url('/register') }}" class="text-decoration-none">Registrasi Account</a>
         </div>
 
         <div class="card">
@@ -83,13 +83,13 @@
                             <div class="icheck-primary">
                                 <input type="checkbox" id="agreeTerms" name="terms" value="agree">
                                 <label for="agreeTerms">
-                                    I agree to the <a href="#">terms</a>
+                                    I agree to the <a href="#" class="text-decoration-none">terms</a>
                                 </label>
                             </div>
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-sm">Register</button>
                         </div>
                         <!-- /.col -->
                     </div>

@@ -39,10 +39,9 @@
 
 
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('logout') }}"
+            <a class="mt-1 btn btn-danger btn-sm text-light" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();" role="button">
-                <i class="fas fa-th-large"></i>
-                Logout
+                <i class="fas fa-sign-out-alt"></i>&nbsp;Logout
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf

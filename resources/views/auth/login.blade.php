@@ -12,7 +12,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/login') }}">Login Account</a>
+            <a href="{{ url('/login') }}" class="text-decoration-none">Login Account</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -49,7 +49,7 @@
                         @enderror
                     </div>
                     <div class="row">
-                        <div class="col-9">
+                        <div class="col-8">
                             <div class="icheck-primary">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                     {{ old('remember') ? 'checked' : '' }}>
@@ -60,9 +60,9 @@
                             </div>
                         </div>
                         <!-- /.col -->
-                        <div class="col-3">
-                            <button type="submit" class="btn btn-primary">
-                                Login
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-sm">
+                                <i class="fas fa-sign-in-alt"></i>&nbsp;Login
                             </button>
                         </div>
                         <!-- /.col -->
@@ -72,11 +72,12 @@
                 <div class="row">
                     <div class="col-12">
                         @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>
+                            <a class="text-decoration-none" href="{{ route('password.request') }}">Forgot
+                                Your Password?</a>
                         @endif
                     </div>
                     <div class="col-12">
-                        <a href="{{ url('/register') }}">Register a new membership</a>
+                        <a href="{{ url('/register') }}" class="text-decoration-none">Register a new membership</a>
                     </div>
                 </div>
             </div>

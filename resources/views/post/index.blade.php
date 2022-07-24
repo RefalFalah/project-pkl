@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -6,8 +7,8 @@
                 @include('layouts/_flash')
                 <div class="card">
                     <div class="card-header">
-                        Data Nilai
-                        <a href="{{ route('nilai.create') }}" class="btn btn-sm btn-primary" style="float: right">
+                        Data Post
+                        <a href="{{ route('post.create') }}" class="btn btn-sm btn-primary" style="float: right">
                             Tambah Data
                         </a>
                     </div>
@@ -18,30 +19,26 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nomor Induk Siswa</th>
-                                        <th>Kode Mata Pelajaran</th>
-                                        <th>Nilai</th>
-                                        <th>Grade</th>
+                                        <th>Title</th>
+                                        <th>Content</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($nilai as $index => $data)
+                                    @foreach ($post as $index => $data)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
-                                            <td>{{ $data->nis }}</td>
-                                            <td>{{ $data->kode_mp }}</td>
-                                            <td>{{ $data->nilai }}</td>
-                                            <td>{{ $data->index_nilai }}</td>
+                                            <td>{{ $data->title }}</td>
+                                            <td>{{ $data->content }}</td>
                                             <td>
-                                                <form action="{{ route('nilai.destroy', $data->id) }}" method="post">
+                                                <form action="{{ route('post.destroy', $data->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <a href="{{ route('nilai.edit', $data->id) }}"
+                                                    <a href="{{ route('post.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
                                                         Edit
                                                     </a> |
-                                                    <a href="{{ route('nilai.show', $data->id) }}"
+                                                    <a href="{{ route('post.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
                                                         Show
                                                     </a> |
