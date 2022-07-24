@@ -19,7 +19,7 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::all();
-        return view('siswa.index', compact('siswa'));
+        return view('siswa.index', ["judul" => "Siswa"], compact('siswa'));
     }
 
     /**
@@ -29,7 +29,7 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('siswa.create');
+        return view('siswa.create', ["judul" => "Siswa"]);
     }
 
     /**
@@ -63,10 +63,10 @@ class SiswaController extends Controller
      * @param  \App\Models\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Siswa $siswa)
     {
-        $siswa = Siswa::findOrFail($id);
-        return view('siswa.show', compact('siswa'));
+        $siswa = $siswa;
+        return view('siswa.show', ["judul" => "Siswa"], compact('siswa'));
     }
 
     /**
@@ -75,10 +75,10 @@ class SiswaController extends Controller
      * @param  \App\Models\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Siswa $siswa)
     {
-        $siswa = Siswa::findOrFail($id);
-        return view('siswa.edit', compact('siswa'));
+        $siswa = $siswa;
+        return view('siswa.edit', ["judul" => "Siswa"], compact('siswa'));
     }
 
     /**
@@ -88,9 +88,9 @@ class SiswaController extends Controller
      * @param  \App\Models\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Siswa $siswa)
     {
-        $siswa = Siswa::findOrFail($id);
+        $siswa = $siswa;
 
         $validated = $request->validate([
             'nis' => 'required',
@@ -114,9 +114,9 @@ class SiswaController extends Controller
      * @param  \App\Models\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Siswa $siswa)
     {
-        $siswa = Siswa::findOrFail($id);
+        $siswa = $siswa;
         $siswa->delete();
         return redirect()->route('siswa.index')->with('success', 'Data berhasil dihapus!');
     }

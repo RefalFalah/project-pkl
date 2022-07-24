@@ -4,7 +4,7 @@
     <a href="index3.html" class="brand-link text-decoration-none">
         <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Latihan + Tugas</span>
     </a>
 
     <!-- Sidebar -->
@@ -38,7 +38,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ url('/post') }}" class="nav-link">
+                    <a href="{{ url('/post') }}" class="nav-link {{ $judul === 'Post' ? 'active' : '' }}">
                         <i class="fas fa-vote-yea"></i>&nbsp;
                         <p>
                             Posts
@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/siswa') }}" class="nav-link">
+                    <a href="{{ url('/siswa') }}" class="nav-link {{ $judul === 'Siswa' ? 'active' : '' }}">
                         <i class="fas fa-users"></i>&nbsp;
                         <p>
                             Siswa
@@ -54,7 +54,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/nilai') }}" class="nav-link">
+                    <a href="{{ url('/nilai') }}" class="nav-link {{ $judul === 'Nilai' ? 'active' : '' }}">
                         <i class="fas fa-star"></i>&nbsp;
                         <p>
                             Nilai
@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/jurusan') }}" class="nav-link">
+                    <a href="{{ url('/jurusan') }}" class="nav-link {{ $judul === 'Jurusan' ? 'active' : '' }}">
                         <i class="fas fa-school"></i>&nbsp;
                         <p>
                             Jurusan

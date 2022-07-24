@@ -9,13 +9,13 @@
                     <div class="card-header">
                         Data Post
                         <a href="{{ route('post.create') }}" class="btn btn-sm btn-primary" style="float: right">
-                            Tambah Data
+                            <i class="fas fa-plus-circle"></i>&nbsp;Tambah Data
                         </a>
                     </div>
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table align-middle table-hover" id="dataTable">
+                            <table class="table align-middle table-hover text-center" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -28,7 +28,7 @@
                                     @foreach ($post as $index => $data)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
-                                            <td>{{ $data->title }}</td>
+                                            <td class="text-start">{{ $data->title }}</td>
                                             <td>{{ $data->content }}</td>
                                             <td>
                                                 <form action="{{ route('post.destroy', $data->id) }}" method="post">
@@ -36,14 +36,15 @@
                                                     @method('delete')
                                                     <a href="{{ route('post.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
-                                                        Edit
+                                                        <i class="fas fa-edit"></i>&nbsp;Edit
                                                     </a> |
                                                     <a href="{{ route('post.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
-                                                        Show
+                                                        <i class="fas fa-info-circle"></i>&nbsp;Show
                                                     </a> |
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
-                                                        onclick="return confirm('Apakah Anda Yakin?')">Delete
+                                                        onclick="return confirm('Apakah Anda Yakin?')"><i
+                                                            class="fas fa-trash-alt"></i>&nbsp;Delete
                                                     </button>
                                                 </form>
                                             </td>

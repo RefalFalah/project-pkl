@@ -8,7 +8,7 @@
                     <div class="card-header">
                         Data Jurusan
                         <a href="{{ route('jurusan.create') }}" class="btn btn-sm btn-primary" style="float: right">
-                            Tambah Data
+                            <i class="fas fa-plus-circle"></i>&nbsp;Tambah Data
                         </a>
                     </div>
 
@@ -22,16 +22,16 @@
                                         <th>Nama Mapel</th>
                                         <th>Semester</th>
                                         <th>Jurusan</th>
-                                        <th>Aksi</th>
+                                        <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($jurusan as $index => $data)
                                         <tr>
-                                            <td>{{ $index + 1 }}</td>
+                                            <td class="text-center">{{ $index + 1 }}</td>
                                             <td>{{ $data->kode_mp }}</td>
                                             <td>{{ $data->nama_mp }}</td>
-                                            <td>{{ $data->semester }}</td>
+                                            <td class="text-center">{{ $data->semester }}</td>
                                             <td>{{ $data->jurusan }}</td>
                                             <td>
                                                 <form action="{{ route('jurusan.destroy', $data->id) }}" method="post">
@@ -39,14 +39,15 @@
                                                     @method('delete')
                                                     <a href="{{ route('jurusan.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
-                                                        Edit
+                                                        <i class="fas fa-edit"></i>&nbsp;Edit
                                                     </a> |
                                                     <a href="{{ route('jurusan.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
-                                                        Show
+                                                        <i class="fas fa-info-circle"></i>&nbsp;Show
                                                     </a> |
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
-                                                        onclick="return confirm('Apakah Anda Yakin?')">Delete
+                                                        onclick="return confirm('Apakah Anda Yakin?')"><i
+                                                            class="fas fa-trash-alt"></i>&nbsp;Delete
                                                     </button>
                                                 </form>
                                             </td>

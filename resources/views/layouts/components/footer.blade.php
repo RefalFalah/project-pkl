@@ -1,7 +1,4 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-    </div>
+    <p class="text-center mt-3">Latihan dan tugas ini di buat dengan <i class="fas fa-heart text-danger"></i> by
+        {{ Auth::user()->name }}</p>
 </footer>

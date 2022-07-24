@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\BinaryOp\Pow;
 
 class PostController extends Controller
 {
@@ -19,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::all();
-        return view('post.index', compact('post'));
+        return view('post.index', ["judul" => "Post"], compact('post'));
     }
 
     /**
@@ -29,7 +30,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        return view('post.create', ["judul" => "Post"]);
     }
 
     /**
@@ -59,10 +60,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::findOrFail($id);
-        return view('post.show', compact('post'));
+        $post = $post;
+        return view('post.show', ["judul" => "Post"], compact('post'));
     }
 
     /**
@@ -71,10 +72,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::findOrFail($id);
-        return view('post.edit', compact('post'));
+        $post = $post;
+        return view('post.edit', ["judul" => "Post"], compact('post'));
     }
 
     /**
@@ -84,9 +85,9 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        $post = Post::findOrFail($id);
+        $post = $post;
 
         $validated = $request->validate([
             'title' => 'required',
@@ -106,9 +107,9 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = Post::findOrFail($id);
+        $post = $post;
         $post->delete();
         return redirect()->route('post.index')->with('success', 'Data berhasil dihapus!');
     }

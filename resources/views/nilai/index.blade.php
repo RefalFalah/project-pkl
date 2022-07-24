@@ -8,17 +8,17 @@
                     <div class="card-header">
                         Data Nilai
                         <a href="{{ route('nilai.create') }}" class="btn btn-sm btn-primary" style="float: right">
-                            Tambah Data
+                            <i class="fas fa-plus-circle"></i>&nbsp;Tambah Data
                         </a>
                     </div>
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table align-middle table-hover" id="dataTable">
+                            <table class="table align-middle table-hover text-center" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nomor Induk Siswa</th>
+                                        <th>NIS</th>
                                         <th>Kode Mata Pelajaran</th>
                                         <th>Nilai</th>
                                         <th>Grade</th>
@@ -39,14 +39,15 @@
                                                     @method('delete')
                                                     <a href="{{ route('nilai.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
-                                                        Edit
+                                                        <i class="fas fa-edit"></i>&nbsp;Edit
                                                     </a> |
                                                     <a href="{{ route('nilai.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
-                                                        Show
+                                                        <i class="fas fa-info-circle"></i>&nbsp;Show
                                                     </a> |
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
-                                                        onclick="return confirm('Apakah Anda Yakin?')">Delete
+                                                        onclick="return confirm('Apakah Anda Yakin?')"><i
+                                                            class="fas fa-trash-alt"></i>&nbsp;Delete
                                                     </button>
                                                 </form>
                                             </td>

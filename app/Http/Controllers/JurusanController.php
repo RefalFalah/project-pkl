@@ -20,7 +20,7 @@ class JurusanController extends Controller
     public function index()
     {
         $jurusan = Jurusan::all();
-        return view('jurusan.index', compact('jurusan'));
+        return view('jurusan.index', ["judul" => "Jurusan"], compact('jurusan'));
     }
 
     /**
@@ -30,7 +30,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        return view('jurusan.create');
+        return view('jurusan.create', ["judul" => "Jurusan"],);
     }
 
     /**
@@ -64,10 +64,10 @@ class JurusanController extends Controller
      * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Jurusan $jurusan)
     {
-        $jurusan = Jurusan::findOrFail($id);
-        return view('jurusan.show', compact('jurusan'));
+        $jurusan = $jurusan;
+        return view('jurusan.show', ["judul" => "Jurusan"], compact('jurusan'));
     }
 
     /**
@@ -76,10 +76,10 @@ class JurusanController extends Controller
      * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Jurusan $jurusan)
     {
-        $jurusan = Jurusan::findOrFail($id);
-        return view('jurusan.edit', compact('jurusan'));
+        $jurusan = $jurusan;
+        return view('jurusan.edit', ["judul" => "Jurusan"], compact('jurusan'));
     }
 
     /**
@@ -89,9 +89,9 @@ class JurusanController extends Controller
      * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Jurusan $jurusan)
     {
-        $jurusan = Jurusan::findOrFail($id);
+        $jurusan = $jurusan;
 
         $validated = $request->validate([
             'kode_mp' => 'required|max:225',
@@ -115,9 +115,9 @@ class JurusanController extends Controller
      * @param  \App\Models\Jurusan  $jurusan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Jurusan $jurusan)
     {
-        $jurusan = Jurusan::findOrFail($id);
+        $jurusan = $jurusan;
         $jurusan->delete();
         return redirect()->route('jurusan.index')->with('success', 'Data berhasil dihaspus!');
     }

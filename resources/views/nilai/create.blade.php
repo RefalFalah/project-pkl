@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 {{-- @include('layouts/_flash') --}}
                 <div class="card shadow">
                     <div class="card-header">
@@ -41,7 +41,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <div class="">
+                                <div class="d-grid gap-2">
                                     <button class="btn btn-primary btn-sm" type="submit">Save</button>
                                 </div>
                             </div>

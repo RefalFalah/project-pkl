@@ -9,7 +9,7 @@
                     <div class="card-header">
                         Data Siswa
                         <a href="{{ route('siswa.create') }}" class="btn btn-sm btn-primary" style="float: right">
-                            Tambah Data
+                            <i class="fas fa-plus-circle"></i>&nbsp;Tambah Data
                         </a>
                     </div>
 
@@ -19,17 +19,17 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nomor Induk Siswa</th>
+                                        <th>NIS</th>
                                         <th>Nama</th>
                                         <th>Alamat</th>
                                         <th>Tanggal Lahir</th>
-                                        <th>Aksi</th>
+                                        <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($siswa as $index => $data)
                                         <tr>
-                                            <td>{{ $index + 1 }}</td>
+                                            <td class="text-center">{{ $index + 1 }}</td>
                                             <td>{{ $data->nis }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->alamat }}</td>
@@ -40,14 +40,15 @@
                                                     @method('delete')
                                                     <a href="{{ route('siswa.edit', $data->id) }}"
                                                         class="btn btn-sm btn-outline-success">
-                                                        Edit
+                                                        <i class="fas fa-edit"></i>&nbsp;Edit
                                                     </a> |
                                                     <a href="{{ route('siswa.show', $data->id) }}"
                                                         class="btn btn-sm btn-outline-warning">
-                                                        Show
+                                                        <i class="fas fa-info-circle"></i>&nbsp;Show
                                                     </a> |
                                                     <button type="submit" class="btn btn-sm btn-outline-danger"
-                                                        onclick="return confirm('Apakah Anda Yakin?')">Delete
+                                                        onclick="return confirm('Apakah Anda Yakin?')"><i
+                                                            class="fas fa-trash-alt"></i>&nbsp;Delete
                                                     </button>
                                                 </form>
                                             </td>

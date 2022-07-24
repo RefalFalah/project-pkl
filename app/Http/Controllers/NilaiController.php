@@ -20,7 +20,7 @@ class NilaiController extends Controller
     public function index()
     {
         $nilai = Nilai::all();
-        return view('nilai.index', compact('nilai'));
+        return view('nilai.index', ["judul" => "Nilai"], compact('nilai'));
     }
 
     /**
@@ -30,7 +30,7 @@ class NilaiController extends Controller
      */
     public function create()
     {
-        return view('nilai.create');
+        return view('nilai.create', ["judul" => "Nilai"]);
     }
 
     /**
@@ -74,10 +74,10 @@ class NilaiController extends Controller
      * @param  \App\Models\Nilai  $nilai
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Nilai $nilai)
     {
-        $nilai = Nilai::findOrFail($id);
-        return view('nilai.show', compact('nilai'));
+        $nilai = $nilai;
+        return view('nilai.show', ["judul" => "Nilai"], compact('nilai'));
     }
 
     /**
@@ -86,10 +86,10 @@ class NilaiController extends Controller
      * @param  \App\Models\Nilai  $nilai
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Nilai $nilai)
     {
-        $nilai = Nilai::findOrFail($id);
-        return view('nilai.edit', compact('nilai'));
+        $nilai = $nilai;
+        return view('nilai.edit', ["judul" => "Nilai"], compact('nilai'));
     }
 
     /**
@@ -99,9 +99,9 @@ class NilaiController extends Controller
      * @param  \App\Models\Nilai  $nilai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Nilai $nilai)
     {
-        $nilai = Nilai::findOrfail($id);
+        $nilai = $nilai;
 
         $validated = $request->validate([
             'nis' => 'required|max:225',
@@ -136,9 +136,9 @@ class NilaiController extends Controller
      * @param  \App\Models\Nilai  $nilai
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Nilai $nilai)
     {
-        $nilai = Nilai::findOrFail($id);
+        $nilai = $nilai;
         $nilai->delete();
         return redirect()->route('nilai.index')->with('success', 'Data berhasil diedit');
     }
