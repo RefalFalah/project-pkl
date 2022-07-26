@@ -44,8 +44,8 @@
                                 <select name="id_siswa" class="form-control @error('id_siswa') is-invalid @enderror"
                                     readonly>
                                     @foreach ($siswa as $data)
-                                        <option value="{{ $data->id }}">
-                                            {{ $data->id === $wali->id_siswa ? 'selected' : '' }}
+                                        <option value="{{ $data->id }}"
+                                            {{ $data->id == $wali->id_siswa ? 'selected' : '' }}>
                                             {{ $data->nama }}
                                         </option>
                                     @endforeach

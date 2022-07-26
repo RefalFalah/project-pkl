@@ -17,7 +17,7 @@ class WaliController extends Controller
     public function index()
     {
         $wali = Wali::with('siswa')->get();
-        return view('wali.index', ['judul' => 'wali'], ['wali' => $wali]);
+        return view('wali.index', ['judul' => 'Wali'], ['wali' => $wali]);
     }
 
     /**
@@ -28,7 +28,7 @@ class WaliController extends Controller
     public function create()
     {
         $siswa = Siswa::all();
-        return view('wali.create', ['judul' => 'wali'], compact('siswa'));
+        return view('wali.create', ['judul' => 'Wali'], compact('siswa'));
     }
 
     /**
@@ -67,7 +67,7 @@ class WaliController extends Controller
      */
     public function show(Wali $wali)
     {
-        return view('wali.show', ['judul' => 'wali'], compact('wali'));
+        return view('wali.show', ['judul' => 'Wali'], compact('wali'));
     }
 
     /**
@@ -79,7 +79,7 @@ class WaliController extends Controller
     public function edit(Wali $wali)
     {
         $siswa = Siswa::all();
-        return view('wali.edit', ['judul' => 'wali'], compact('wali', 'siswa'));
+        return view('wali.edit', ['judul' => 'Wali'], compact('wali', 'siswa'));
     }
 
     /**
