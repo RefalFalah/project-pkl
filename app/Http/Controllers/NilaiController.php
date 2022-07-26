@@ -76,7 +76,6 @@ class NilaiController extends Controller
      */
     public function show(Nilai $nilai)
     {
-        $nilai = $nilai;
         return view('nilai.show', ["judul" => "Nilai"], compact('nilai'));
     }
 
@@ -88,7 +87,6 @@ class NilaiController extends Controller
      */
     public function edit(Nilai $nilai)
     {
-        $nilai = $nilai;
         return view('nilai.edit', ["judul" => "Nilai"], compact('nilai'));
     }
 
@@ -101,8 +99,6 @@ class NilaiController extends Controller
      */
     public function update(Request $request, Nilai $nilai)
     {
-        $nilai = $nilai;
-
         $validated = $request->validate([
             'nis' => 'required|max:225',
             'kode_mp' => 'required|max:225',
@@ -138,7 +134,6 @@ class NilaiController extends Controller
      */
     public function destroy(Nilai $nilai)
     {
-        $nilai = $nilai;
         $nilai->delete();
         return redirect()->route('nilai.index')->with('success', 'Data berhasil diedit');
     }

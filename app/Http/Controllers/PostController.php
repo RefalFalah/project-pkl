@@ -62,7 +62,6 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $post = $post;
         return view('post.show', ["judul" => "Post"], compact('post'));
     }
 
@@ -74,7 +73,6 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $post = $post;
         return view('post.edit', ["judul" => "Post"], compact('post'));
     }
 
@@ -87,8 +85,6 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post = $post;
-
         $validated = $request->validate([
             'title' => 'required',
             'content' => 'required'
@@ -109,7 +105,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post = $post;
         $post->delete();
         return redirect()->route('post.index')->with('success', 'Data berhasil dihapus!');
     }

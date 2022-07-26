@@ -67,7 +67,6 @@ class WaliController extends Controller
      */
     public function show(Wali $wali)
     {
-        $wali = $wali;
         return view('wali.show', ['judul' => 'wali'], compact('wali'));
     }
 
@@ -79,7 +78,6 @@ class WaliController extends Controller
      */
     public function edit(Wali $wali)
     {
-        $wali = $wali;
         $siswa = Siswa::all();
         return view('wali.edit', ['judul' => 'wali'], compact('wali', 'siswa'));
     }
@@ -122,7 +120,6 @@ class WaliController extends Controller
      */
     public function destroy(Wali $wali)
     {
-        $wali = $wali;
         $wali->deleteImage();
         $wali->delete();
 

@@ -9,11 +9,7 @@ class GuruController extends Controller
 {
     public function index()
     {
-        // memanggil data Wali bersama dengan data siswa
-        // yang dibuat dari method 'siswa' di model 'Wali'
         $guru = Guru::all();
-        // dd($guru);
-        // return $guru;
         return view('guru.index', ['judul' => 'Guru'], compact('guru'));
     }
 
@@ -40,23 +36,21 @@ class GuruController extends Controller
         }
         $guru->nip = $request->nip;
         $guru->save();
-        return redirect()->route('guru.index')
-            ->with('success', 'Data berhasil dibuat!');
+
+        return redirect()->route('guru.index')->with('success', 'Data berhasil dibuat!');
     }
 
-    public function show($id)
+    public function show(Guru $guru)
     {
-        $guru = Guru::findOrFail($id);
         return view('guru.show', ['judul' => 'Guru'], compact('guru'));
     }
 
-    public function edit($id)
+    public function edit(Guru $guru)
     {
-        $guru = Guru::findOrFail($id);
         return view('guru.edit', ['judul' => 'Guru'], compact('guru'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Guru $guru)
     {
         $validated = $request->validate([
             'nama' => 'required',
@@ -64,7 +58,6 @@ class GuruController extends Controller
             'foto' => 'image|max:2048',
         ]);
 
-        $guru = Guru::findOrFail($id);
         $guru->nama = $request->nama;
         if ($request->hasFile('foto')) {
             $image = $request->file('foto');

@@ -66,7 +66,6 @@ class JurusanController extends Controller
      */
     public function show(Jurusan $jurusan)
     {
-        $jurusan = $jurusan;
         return view('jurusan.show', ["judul" => "Jurusan"], compact('jurusan'));
     }
 
@@ -78,7 +77,6 @@ class JurusanController extends Controller
      */
     public function edit(Jurusan $jurusan)
     {
-        $jurusan = $jurusan;
         return view('jurusan.edit', ["judul" => "Jurusan"], compact('jurusan'));
     }
 
@@ -91,8 +89,6 @@ class JurusanController extends Controller
      */
     public function update(Request $request, Jurusan $jurusan)
     {
-        $jurusan = $jurusan;
-
         $validated = $request->validate([
             'kode_mp' => 'required|max:225',
             'nama_mp' => 'required',
@@ -117,7 +113,6 @@ class JurusanController extends Controller
      */
     public function destroy(Jurusan $jurusan)
     {
-        $jurusan = $jurusan;
         $jurusan->delete();
         return redirect()->route('jurusan.index')->with('success', 'Data berhasil dihaspus!');
     }

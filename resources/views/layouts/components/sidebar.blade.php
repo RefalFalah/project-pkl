@@ -37,7 +37,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ url('/post') }}" class="nav-link {{ $judul === 'Post' ? 'active' : '' }}">
+                    <a href="{{ url('/admin/post') }}" class="nav-link {{ $judul === 'Post' ? 'active' : '' }}">
                         <i class="fas fa-vote-yea"></i>&nbsp;
                         <p>
                             Posts
@@ -45,7 +45,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/siswa') }}" class="nav-link {{ $judul === 'Siswa' ? 'active' : '' }}">
+                    <a href="{{ url('/admin/guru') }}" class="nav-link {{ $judul === 'Guru' ? 'active' : '' }}">
+                        <i class="fas fa-chalkboard-teacher"></i>&nbsp;
+                        <p>
+                            Guru
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/admin/siswa') }}" class="nav-link {{ $judul === 'Siswa' ? 'active' : '' }}">
                         <i class="fas fa-users"></i>&nbsp;
                         <p>
                             Siswa
@@ -53,7 +61,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/nilai') }}" class="nav-link {{ $judul === 'Nilai' ? 'active' : '' }}">
+                    <a href="{{ url('/admin/wali') }}" class="nav-link {{ $judul === 'Wali' ? 'active' : '' }}">
+                        <i class="fas fa-user"></i>&nbsp;
+                        <p>
+                            Wali
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/admin/nilai') }}" class="nav-link {{ $judul === 'Nilai' ? 'active' : '' }}">
                         <i class="fas fa-star"></i>&nbsp;
                         <p>
                             Nilai
@@ -61,7 +77,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/jurusan') }}" class="nav-link {{ $judul === 'Jurusan' ? 'active' : '' }}">
+                    <a href="{{ url('/admin/jurusan') }}" class="nav-link {{ $judul === 'Jurusan' ? 'active' : '' }}">
                         <i class="fas fa-school"></i>&nbsp;
                         <p>
                             Jurusan

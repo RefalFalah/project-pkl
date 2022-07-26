@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::all();
-        return view('siswa.index', ["judul" => "Siswa"], compact('siswa'));
+        return view('siswa.index', ['judul' => 'Siswa'], compact('siswa'));
     }
 
     /**
@@ -29,7 +30,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('siswa.create', ["judul" => "Siswa"]);
+        $guru = Guru::all();
+        return view('siswa.create', ['judul' => 'Siswa'], compact('guru'));
     }
 
     /**
@@ -41,82 +43,89 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nis' => 'required|unique:siswas|max:225',
             'nama' => 'required',
+            'nis' => 'required|unique:siswas|max:255',
+            'jenis_kelamin' => 'required',
+            'agama' => 'required',
+            'tgl_lahir' => 'required',
             'alamat' => 'required',
-            'tanggal_lahir' => 'required',
+            'id_guru' => 'required',
         ]);
 
         $siswa = new Siswa();
-        $siswa->nis = $request->nis;
         $siswa->nama = $request->nama;
+        $siswa->nis = $request->nis;
+        $siswa->jenis_kelamin = $request->jenis_kelamin;
+        $siswa->agama = $request->agama;
+        $siswa->tgl_lahir = $request->tgl_lahir;
         $siswa->alamat = $request->alamat;
-        $siswa->tanggal_lahir = $request->tanggal_lahir;
+        $siswa->id_guru = $request->id_guru;
         $siswa->save();
-
         return redirect()->route('siswa.index')->with('success', 'Data berhasil dibuat!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Siswa  $siswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Siswa $siswa)
     {
-        $siswa = $siswa;
-        return view('siswa.show', ["judul" => "Siswa"], compact('siswa'));
+        return view('siswa.show', ['judul' => 'Siswa'], compact('siswa'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Siswa  $siswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Siswa $siswa)
     {
-        $siswa = $siswa;
-        return view('siswa.edit', ["judul" => "Siswa"], compact('siswa'));
+        $guru = Guru::all();
+        return view('siswa.edit', ['judul' => 'Siswa'], compact('siswa', 'guru'));
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Siswa  $siswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Siswa $siswa)
     {
-        $siswa = $siswa;
-
         $validated = $request->validate([
-            'nis' => 'required',
             'nama' => 'required',
+            'nis' => 'required|max:255',
+            'jenis_kelamin' => 'required',
+            'agama' => 'required',
+            'tgl_lahir' => 'required',
             'alamat' => 'required',
-            'tanggal_lahir' => 'required',
+            'id_guru' => 'required',
         ]);
 
-        $siswa->nis = $request->nis;
         $siswa->nama = $request->nama;
+        $siswa->nis = $request->nis;
+        $siswa->jenis_kelamin = $request->jenis_kelamin;
+        $siswa->agama = $request->agama;
+        $siswa->tgl_lahir = $request->tgl_lahir;
         $siswa->alamat = $request->alamat;
-        $siswa->tanggal_lahir = $request->tanggal_lahir;
+        $siswa->id_guru = $request->id_guru;
         $siswa->save();
-
         return redirect()->route('siswa.index')->with('success', 'Data berhasil diedit!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Siswa  $siswa
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Siswa $siswa)
     {
-        $siswa = $siswa;
         $siswa->delete();
         return redirect()->route('siswa.index')->with('success', 'Data berhasil dihapus!');
     }
